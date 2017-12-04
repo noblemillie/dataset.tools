@@ -8,11 +8,14 @@ export default class Home extends Component {
     return (
       <div>
         <div className={styles.container} data-tid="container">
-          <h2>Home</h2>
-          <input></input><button> Login</button>
+          <h2>dataset.tools</h2>
+          <input placeholder="Username"></input>
           <br/>
-          <input></input><button> Sign up</button>
-        <script>// <Link to="/counter">to Counter</Link></script>
+          <input placeholder="Password"></input>
+          <br/>
+          <button> Sign up</button>
+          <button>Login</button>
+          {/* <Link to="/counter">to Counter</Link> */}
         </div>
       </div>
     );
