@@ -2,8 +2,6 @@
 logs
 *.log
 
-.env
-
 # Runtime data
 pids
 *.pid
@@ -52,3 +50,4 @@ main.js.map
 
 .idea
 npm-debug.log.*
+__snapshots__
