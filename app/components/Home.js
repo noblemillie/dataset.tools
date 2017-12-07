@@ -7,13 +7,20 @@ import axios from 'axios';
 
 // import 'semantic-ui-css/semantic.min.css';
 // import ButtonExampleColored from "./button.js"
-
+// import TextInput from 'grommet/components/TextInput';
 
 export default class Home extends Component {
   render() {
 
-    var clicked = function(){
-      console.log('clicked');
+    var getFiles = function(){
+      axios.get('8080/getdata')
+      .then((data) => {
+        console.log('Yeah')
+      })
+      .catch (function (error){
+        console.log(error)
+      })
+      console.log('in getFiles function')
     }
 
     return (
@@ -24,6 +31,7 @@ export default class Home extends Component {
           <br/>
           <script>//<Link to="/counter">to Counter</Link></script>
           <a  href="http://localhost:8080/authorize">Click here to sign in with data.world!!</a>
+          <button onClick = {() => getFiles()}>Get files</button>
         </div>
       </div>
     );

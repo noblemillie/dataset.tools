@@ -18,11 +18,10 @@ const config = {
   client_id: process.env.CLIENT_ID,
   redirect_uri: 'http://localhost:8080',
   response_type: 'code',
-  code_verifier: 'g0KGoCuzBjaEYmbIHdci2UGoeCmp7uBRnJrbESi5nXp1FiBayGySC4bJiqNVWiAb',
-  code_challenge: base64(sha256('g0KGoCuzBjaEYmbIHdci2UGoeCmp7uBRnJrbESi5nXp1FiBayGySC4bJiqNVWiAb'))
+  code_verifier: 'NTM3MDAyOTk0OGEwMjZmOWE0YTA5MGM3MDVjZGFiOWYyOTVmZGQ3ZmY0OTA2OTVlMTQ3MjFiZWIwN2E1Y2E3YQ',
+  code_challenge: base64(sha256('NTM3MDAyOTk0OGEwMjZmOWE0YTA5MGM3MDVjZGFiOWYyOTVmZGQ3ZmY0OTA2OTVlMTQ3MjFiZWIwN2E1Y2E3YQ'))
 }
 app.get('/authorize', function(req, res) {
-  console.log('-----------------------',config.code_challenge)
   console.log('~~~~~AUTHORIZING')
   const client_id = process.env.CLIENT_ID;
   const redirect_uri = process.env.REDIRECT_URI;
@@ -32,21 +31,35 @@ app.get('/authorize', function(req, res) {
 
 app.get('/', function (req, res) {
   var code = req.query.code;
-  // console.log('code',code);
   if (code){
     axios.post(`https://data.world/oauth/access_token?code=${code}&client_id=${config.client_id}&client_secret=${process.env.DATAWORLD_SECRET}&grant_type=authorization_code&code_verifier=${config.code_verifier}`).then((response) =>{
-      console.log('response',response)
       if (response.data.access_token){
         console.log('response token',response.data.access_token);
       }
-      // else {
-      //   const errorMessage = response.data.message || 'unknown error';
-      //   console.log('errorMessage',errorMessage);
-      // }
+      else {
+        const errorMessage = response.status.message || 'unknown error';
+        // console.log('-------------------------',errorMessage);
+      }
+    }).catch(err =>{
+      console.log('------------------------------',err.response.data)
     })
   }
   res.sendFile(path.resolve('./app/index.html'))
 });
+
+
+
+
+
+
+
+
+
+app.get('/getdata', (req,res) =>{
+  console.log('In server /getdata');
+  res.send('hi');
+});
+
 
 
 
