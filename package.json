@@ -186,24 +186,27 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "ascii85": "^1.0.2",
     "axios": "^0.17.1",
+    "base64url": "^2.0.0",
     "devtron": "^1.4.0",
     "electron-debug": "^1.2.0",
     "font-awesome": "^4.7.0",
+    "grommet": "^2.0.0-alpha.5",
     "history": "^4.6.3",
     "react": "^15.6.1",
+    "react-desktop": "^0.3.3",
     "react-dom": "^15.6.1",
     "react-hot-loader": "3.0.0-beta.6",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^5.0.0-alpha.6",
-    "react-semantic-ui": "^0.2.0",
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0",
-    "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.77.0",
-    "source-map-support": "^0.4.15"
+    "sha256": "^0.2.0",
+    "source-map-support": "^0.4.15",
+    "url-safe-base64": "^1.1.0"
   },
   "devEngines": {
     "node": ">=7.x",
