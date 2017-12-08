@@ -41,7 +41,7 @@ app.get('/', function (req, res) {
         // console.log('-------------------------',errorMessage);
       }
     }).catch(err =>{
-      console.log('------------------------------',err.response.data)
+      console.log('------------------------------',err)
     })
   }
   res.sendFile(path.resolve('./app/index.html'))
