@@ -12,6 +12,7 @@ export default class MainPage extends Component {
       <div>
           <h2>dataset.tools</h2>
           <br/>
+          <Link to="/">To HomePage</Link>
           <p>something here</p>
       </div>
     );
