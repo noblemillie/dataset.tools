@@ -1,0 +1,15 @@
+#something {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+#drawer {
+  display: flex;
+  justify-content: ;
+}
+
+#mainstuff {
+  display: flex;
+  justify-content: center;
+}

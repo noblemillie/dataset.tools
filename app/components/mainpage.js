@@ -11,6 +11,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Flexbox from 'flexbox-react';
 import styled from 'styled-components';
+import styles from './mainpage.css';
 
 export default class MainPage extends Component {
   constructor(props){
@@ -37,22 +38,26 @@ export default class MainPage extends Component {
   var positionTitle = {'top': '-8px', 'left':'-10px','background-color':grey700, 'width':'123%', 'height':'73px'};
     return (
       <div>
-        <Flexbox >
+        <div >
+
         <AppBar title="dataset.tools" showMenuIconButton={false} iconClassNameRight="muidocs-icon-navigation-expand-more" style={positionTitle} />
-        </Flexbox>
-        <Flexbox>
+
+        </div>
+        <div id="mainstuff">
+
           <Link to="/">To HomePage</Link>
           <p>something here</p>
-          </Flexbox>
-      <Flexbox >
-      <Drawer open={true} containerStyle={forceNavDown}>
+
+          </div>
+      <div id="drawer">
+      <Drawer open={true} containerStyle={forceNavDown} >
         <MenuItem>Projects</MenuItem>
         <MenuItem>Datasets</MenuItem>
         <MenuItem>Upload DataSet</MenuItem>
         <MenuItem>{this.props.addToken.token}</MenuItem>
         <MenuItem>{this.props.path}</MenuItem>
       </Drawer>
-      </Flexbox>
+      </div>
       </div>
     );
   }
