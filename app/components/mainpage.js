@@ -19,6 +19,15 @@ export default class MainPage extends Component {
       open:false
     }
   }
+  componentDidMount() {
+    console.log('in mount', this.props.addToken.token);
+    if (this.props.addToken.token) {
+      axios.get('http://localhost:8080/getUserDatasets', {params: {accessToken: this.props.addToken.token}})
+      .then((data) => {
+        console.log(data);
+      })
+    } else { console.log("Where's my token")}
+  }
   render() {
     //functions
     console.log(this.props)

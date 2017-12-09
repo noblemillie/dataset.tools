@@ -206,6 +206,8 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
     "sha256": "^0.2.0",
     "source-map-support": "^0.4.15",
     "styled-components": "^2.2.4",
