@@ -1,6 +1,6 @@
 import { ADD_ACCESS_TOKEN} from '../actions/homepage';
 
-
+/*
 export default function addToken(state = {}, action) {
   console.log('inside addToken')
   switch (action.type) {
@@ -10,5 +10,15 @@ export default function addToken(state = {}, action) {
       return state;
   }
 }
+*/
 
 //export default addToken
+
+export default function tokenReducer(state = {}, action) {
+  switch(action.type) {
+    case 'ADD_ACCESS_TOKEN':
+      return action.text
+    default:
+      return state;
+  }
+}
