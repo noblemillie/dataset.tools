@@ -37,3 +37,14 @@ a:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+.nav {
+  background-color: black;
+  width: 250px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

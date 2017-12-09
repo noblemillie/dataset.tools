@@ -7,6 +7,7 @@ import TextField from 'material-ui/TextField';
 import {orange500, blue500, grey700
 } from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Flexbox from 'flexbox-react';
@@ -25,25 +26,22 @@ export default class MainPage extends Component {
     console.log(this.props.addToken.token);
 
   var forceNavDown = {'top': '72px'};
-  var positionTitle = {'top': '-8px', 'left':'-10px','background-color':grey700, 'width':'123%', 'height':'73px'};
+  var positionTitle = {'top': '-8px', 'padding':'0px,0px,0px,0px', 'background-color':grey700, 'height':'73px'};
     return (
       <div>
-        <Flexbox >
-        <AppBar title="dataset.tools" showMenuIconButton={false} iconClassNameRight="muidocs-icon-navigation-expand-more" style={positionTitle} />
-        </Flexbox>
+        <AppBar title="dataset.tools" showMenuIconButton={false} iconClassNameRight="muidocs-icon-navigation-expand-more" style={positionTitle} iconElementRight={<Link to="/"><FlatButton label="Log Out" /></Link>} />
+        <div className='mainContent'>
         <Flexbox>
-          <Link to="/">To HomePage</Link>
           <p>something here</p>
           </Flexbox>
-      <Flexbox >
-      <Drawer open={true} containerStyle={forceNavDown}>
+      </div>
+      <Drawer className='nav' open={true} containerStyle={forceNavDown}>
         <MenuItem>Projects</MenuItem>
         <MenuItem>Datasets</MenuItem>
         <MenuItem>Upload DataSet</MenuItem>
         <MenuItem>{this.props.addToken.token}</MenuItem>
         <MenuItem>{this.props.path}</MenuItem>
       </Drawer>
-      </Flexbox>
       </div>
     );
   }
