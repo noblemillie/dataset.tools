@@ -191,6 +191,7 @@
     "base64url": "^2.0.0",
     "devtron": "^1.4.0",
     "electron-debug": "^1.2.0",
+    "flexbox-react": "^4.4.0",
     "font-awesome": "^4.7.0",
     "grommet": "^2.0.0-alpha.5",
     "history": "^4.6.3",
@@ -207,6 +208,7 @@
     "redux-thunk": "^2.2.0",
     "sha256": "^0.2.0",
     "source-map-support": "^0.4.15",
+    "styled-components": "^2.2.4",
     "url-safe-base64": "^1.1.0"
   },
   "devEngines": {
