@@ -1,4 +1,4 @@
-/*@import "~font-awesome/css/font-awesome.css";
+@import "~font-awesome/css/font-awesome.css";
 
 body {
   position: relative;
@@ -36,4 +36,4 @@ a:hover {
   opacity: 1;
   text-decoration: none;
   cursor: pointer;
-}*/
+}

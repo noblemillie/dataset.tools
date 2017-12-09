@@ -51,7 +51,11 @@ export default class Home extends Component {
           <h2>dataset.tools</h2>
           <br/>
           {/* <Link to="/mainpage">to MainPage</Link> */}
-          <TextField hintText="Hint Text" id="submit" />
+          <RaisedButton label="Sign in With Data.World" href="http://localhost:8080/authorize" />
+          <br/>
+          <h4>OR</h4>
+          <h4>Place Access Token Here</h4>
+          <TextField hintText="Access Token" id="submit" />
           {/* <input id="submit" placeholder="Access Token here"></input> */}
           <RaisedButton onClick={this.redir.bind(this)} label="Submit" />
           {this.state.fireRedirect && (
