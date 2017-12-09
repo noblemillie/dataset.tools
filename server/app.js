@@ -65,18 +65,11 @@ app.get('/getUserDatasets', (req, res) => {
       console.log(error);
     }
     console.log(body, 'body', response, 'response');
-    res.end();
+    res.send(body);
   })
 //  .then(res.end());
   //var token = req.query
 })
-
-
-
-
-
-
-
 
 app.get('/getdata', (req,res) =>{
   console.log('In server /getdata');
