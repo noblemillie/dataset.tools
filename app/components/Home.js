@@ -59,7 +59,7 @@ export default class Home extends Component {
           )}
           <br/>
 
-          {/* <a  href="http://localhost:8080/authorize">Click here to sign in with data.world!!</a> */}
+           <a  href="http://localhost:8080/authorize">Click here to sign in with data.world!!</a>
           {/* <button onClick = {() => getFiles()}>Get files</button> */}
         </div>
       </div>
