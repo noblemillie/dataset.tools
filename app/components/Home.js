@@ -12,7 +12,6 @@ import {orange500, blue500} from 'material-ui/styles/colors';
 export default class Home extends Component {
   constructor(){
     super();
-
     this.state = {
       fireRedirect:false
     }
@@ -21,7 +20,7 @@ export default class Home extends Component {
   redir = () => {
     var at = document.getElementById('submit').value
     console.log('at',at);
-
+    this.props.addAccessToken(at);
     this.setState({fireRedirect:true})
   }
 

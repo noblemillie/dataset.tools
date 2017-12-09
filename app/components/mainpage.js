@@ -11,14 +11,17 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 
 export default class MainPage extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       open:false
     }
   }
   render() {
     //functions
+    console.log(this.props)
+    console.log(this.props.addToken.token);
+
   var forceNavDown = {'top': '72px'};
   var positionTitle = {'top': '-8px', 'left':'-10','background-color':grey700, 'width':'110%', 'height':'73px'};
     return (
@@ -31,6 +34,8 @@ export default class MainPage extends Component {
         <MenuItem>Projects</MenuItem>
         <MenuItem>Datasets</MenuItem>
         <MenuItem>Upload DataSet</MenuItem>
+        <MenuItem>{this.props.addToken.token}</MenuItem>
+        <MenuItem>{this.props.path}</MenuItem>
       </Drawer>
 
       </div>
