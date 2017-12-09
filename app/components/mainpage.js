@@ -9,6 +9,8 @@ import {orange500, blue500, grey700
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import Flexbox from 'flexbox-react';
+import styled from 'styled-components';
 
 export default class MainPage extends Component {
   constructor(props){
@@ -23,13 +25,17 @@ export default class MainPage extends Component {
     console.log(this.props.addToken.token);
 
   var forceNavDown = {'top': '72px'};
-  var positionTitle = {'top': '-8px', 'left':'-10','background-color':grey700, 'width':'110%', 'height':'73px'};
+  var positionTitle = {'top': '-8px', 'left':'-10px','background-color':grey700, 'width':'123%', 'height':'73px'};
     return (
       <div>
+        <Flexbox >
         <AppBar title="dataset.tools" showMenuIconButton={false} iconClassNameRight="muidocs-icon-navigation-expand-more" style={positionTitle} />
-          <br/>
+        </Flexbox>
+        <Flexbox>
           <Link to="/">To HomePage</Link>
           <p>something here</p>
+          </Flexbox>
+      <Flexbox >
       <Drawer open={true} containerStyle={forceNavDown}>
         <MenuItem>Projects</MenuItem>
         <MenuItem>Datasets</MenuItem>
@@ -37,7 +43,7 @@ export default class MainPage extends Component {
         <MenuItem>{this.props.addToken.token}</MenuItem>
         <MenuItem>{this.props.path}</MenuItem>
       </Drawer>
-
+      </Flexbox>
       </div>
     );
   }
