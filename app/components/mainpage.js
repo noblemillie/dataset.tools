@@ -44,9 +44,7 @@ export default class MainPage extends Component {
     var that = this;
 
     var forceNavDown = {'top': '72px'};
-    var positionTitle = {'top': '-8px', 'padding':'0px,0px,0px,0px', 'backgroundColor':grey700, 'height':'73px'};
-  // var forceNavDown = {'top': '72px'};
-  // var positionTitle = {'top': '-8px', 'left':'-10px','background-color':grey700, 'width':'123%', 'height':'73px'};
+    var positionTitle = {'top': '-8px', 'backgroundColor':grey700, 'height':'73px'};
 
   var switchView = function (view) {
     console.log('view at first');
