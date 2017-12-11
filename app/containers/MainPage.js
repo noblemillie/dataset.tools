@@ -25,9 +25,9 @@ return state;
   };
   */
 }
-/*
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(MainPageActions, dispatch);
 }
-*/
-export default connect(mapStateToProps)(MainPage);
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

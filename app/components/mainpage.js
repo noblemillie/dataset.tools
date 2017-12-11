@@ -11,13 +11,16 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Flexbox from 'flexbox-react';
 import styled from 'styled-components';
+import Datasets from './Datasets';
+import Projects from './Projects'
 
 export default class MainPage extends Component {
   constructor(props){
     super(props);
     this.state = {
       open:false,
-      projects: []
+      projects: [],
+      mainview: 'Projects'
     }
   }
   componentDidMount() {
@@ -35,9 +38,26 @@ export default class MainPage extends Component {
     //functions
     console.log(this.props)
     console.log(this.props.token);
+    var that = this;
 
   var forceNavDown = {'top': '72px'};
   var positionTitle = {'top': '-8px', 'left':'-10px','background-color':grey700, 'width':'123%', 'height':'73px'};
+
+  var switchView = function (view) {
+    console.log('view at first');
+    console.log('running switchView');
+    that.props.changeView(view);
+
+  }
+
+  var MainView = function () {
+    var view = that.props.mainView  || 'Projects';
+    if (view === 'Projects'){
+      return <Projects/>;
+    } else if (view === 'Datasets'){
+      return <Datasets/>;
+    }
+  }
     return (
       <div>
         <Flexbox >
@@ -49,14 +69,15 @@ export default class MainPage extends Component {
           </Flexbox>
       <Flexbox >
       <Drawer open={true} containerStyle={forceNavDown}>
-        <MenuItem>Projects</MenuItem>
-        <MenuItem>Datasets</MenuItem>
+        <MenuItem onClick={() => console.log('clicked')}>Projects</MenuItem>
+        <MenuItem onClick={() => switchView('Datasets')}>Datasets </MenuItem>
         <MenuItem>Upload DataSet</MenuItem>
         <MenuItem>
         </MenuItem>
 
       </Drawer>
       </Flexbox>
+      {MainView}
       <p>{JSON.stringify(this.state.projects)}</p>
       </div>
     );
