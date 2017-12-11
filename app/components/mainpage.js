@@ -11,6 +11,8 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Flexbox from 'flexbox-react';
 import styled from 'styled-components';
+import Datasets from './Datasets';
+import Projects from './Projects'
 import FlatButton from 'material-ui/FlatButton';
 
 export default class MainPage extends Component {
@@ -18,7 +20,8 @@ export default class MainPage extends Component {
     super(props);
     this.state = {
       open:false,
-      projects: []
+      projects: [],
+      mainview: 'Projects'
     }
   }
   componentDidMount() {
@@ -36,27 +39,44 @@ export default class MainPage extends Component {
     //functions
     console.log(this.props)
     console.log(this.props.token);
+    var that = this;
 
     var forceNavDown = {'top': '72px'};
     var positionTitle = {'top': '-8px', 'padding':'0px,0px,0px,0px', 'backgroundColor':grey700, 'height':'73px'};
   // var forceNavDown = {'top': '72px'};
   // var positionTitle = {'top': '-8px', 'left':'-10px','background-color':grey700, 'width':'123%', 'height':'73px'};
+
+  var switchView = function (view) {
+    console.log('view at first');
+    console.log('running switchView');
+    that.props.changeView(view);
+
+  }
+
+  var MainView = function () {
+    var view = that.props.mainView  || 'Projects';
+    if (view === 'Projects'){
+      return <Projects/>;
+    } else if (view === 'Datasets'){
+      return <Datasets/>;
+    }
+  }
     return (
       <div>
-        <div>
-          <AppBar title="dataset.tools" showMenuIconButton={false}  style={positionTitle} iconElementRight={<Link to="/"><FlatButton label="Log Out" /></Link>} />
-          <div className='mainContent'>
-            <p>something here</p>
-          </div>
-        <Drawer className='nav' open={true} containerStyle={forceNavDown}>
-          <MenuItem>Projects</MenuItem>
-          <MenuItem>Datasets</MenuItem>
-          <MenuItem>Upload DataSet</MenuItem>
-          <MenuItem>{this.props.token}</MenuItem>
-          <MenuItem>{this.props.path}</MenuItem>
-        </Drawer>
-        </div>
+      <div>
+       <AppBar title="dataset.tools" showMenuIconButton={false}  style={positionTitle} iconElementRight={<Link to="/"><FlatButton label="Log Out" /></Link>} />
+       <div className='mainContent'>
+        <p>something here</p>
+       </div>
+      <Drawer className='nav' open={true} containerStyle={forceNavDown}>
+        <MenuItem onClick={() => console.log('clicked')}>Projects</MenuItem>
+        <MenuItem onClick={() => switchView('Datasets')}>Datasets </MenuItem>
+        <MenuItem>Upload DataSet</MenuItem>
+      </Drawer>
+      {MainView}
+      <p>{JSON.stringify(this.state.projects)}</p>
       </div>
+    </div>
     );
   }
 }
