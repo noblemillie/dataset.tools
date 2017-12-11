@@ -12,7 +12,7 @@ import MenuItem from 'material-ui/MenuItem';
 import Flexbox from 'flexbox-react';
 import styled from 'styled-components';
 import Datasets from './Datasets';
-import Projects from './Projects'
+import Projects from './Projects';
 import FlatButton from 'material-ui/FlatButton';
 
 export default class MainPage extends Component {
@@ -30,7 +30,9 @@ export default class MainPage extends Component {
       axios.get('http://localhost:8080/getUserDatasets', {params: {accessToken: this.props.token}})
       .then((data) => {
         console.log('this is data in componentDidMount', data);
-        this.setState({projects: data.data.records});
+        that.props.addDatasets(data.data.records);
+        console.log(data.data.records);
+        //this.setState({projects: data.data.records});
 
       })
     } else { console.log("Where's my token")}
@@ -52,29 +54,33 @@ export default class MainPage extends Component {
     that.props.changeView(view);
 
   }
+  //      <p>{JSON.stringify(this.state.projects)}</p>
 
-  var MainView = function () {
-    var view = that.props.mainView  || 'Projects';
+  var MainView = function (view) {
+    var view = that.props.mainView  || 'Datasets';
     if (view === 'Projects'){
       return <Projects/>;
-    } else if (view === 'Datasets'){
+    } else {
       return <Datasets/>;
     }
   }
+
+//  return <Projects/>
+//}
+
     return (
       <div>
       <div>
        <AppBar title="dataset.tools" showMenuIconButton={false}  style={positionTitle} iconElementRight={<Link to="/"><FlatButton label="Log Out" /></Link>} />
        <div className='mainContent'>
+        {MainView()}
         <p>something here</p>
        </div>
       <Drawer className='nav' open={true} containerStyle={forceNavDown}>
-        <MenuItem onClick={() => console.log('clicked')}>Projects</MenuItem>
+        <MenuItem onClick={() => switchView('Projects')}>Projects</MenuItem>
         <MenuItem onClick={() => switchView('Datasets')}>Datasets </MenuItem>
         <MenuItem>Upload DataSet</MenuItem>
       </Drawer>
-      {MainView}
-      <p>{JSON.stringify(this.state.projects)}</p>
       </div>
     </div>
     );
