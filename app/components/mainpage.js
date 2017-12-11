@@ -26,15 +26,13 @@ export default class MainPage extends Component {
     console.log(this.props.addToken.token);
 
   var forceNavDown = {'top': '72px'};
-  var positionTitle = {'top': '-8px', 'padding':'0px,0px,0px,0px', 'background-color':grey700, 'height':'73px'};
+  var positionTitle = {'top': '-8px', 'padding':'0px,0px,0px,0px', 'backgroundColor':grey700, 'height':'73px'};
     return (
       <div>
         <AppBar title="dataset.tools" showMenuIconButton={false} iconClassNameRight="muidocs-icon-navigation-expand-more" style={positionTitle} iconElementRight={<Link to="/"><FlatButton label="Log Out" /></Link>} />
         <div className='mainContent'>
-        <Flexbox>
           <p>something here</p>
-          </Flexbox>
-      </div>
+        </div>
       <Drawer className='nav' open={true} containerStyle={forceNavDown}>
         <MenuItem>Projects</MenuItem>
         <MenuItem>Datasets</MenuItem>
