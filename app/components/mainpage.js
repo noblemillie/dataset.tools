@@ -30,7 +30,7 @@ export default class MainPage extends Component {
       axios.get('http://localhost:8080/getUserDatasets', {params: {accessToken: this.props.token}})
       .then((data) => {
         console.log('this is data in componentDidMount', data);
-        that.props.addDatasets(data.data.records);
+        this.props.addUserData(data.data.records);
         console.log(data.data.records);
         //this.setState({projects: data.data.records});
 
