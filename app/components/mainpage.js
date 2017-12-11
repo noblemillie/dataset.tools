@@ -13,6 +13,7 @@ import Flexbox from 'flexbox-react';
 import styled from 'styled-components';
 import Datasets from './Datasets';
 import Projects from './Projects'
+import FlatButton from 'material-ui/FlatButton';
 
 export default class MainPage extends Component {
   constructor(props){
@@ -40,8 +41,10 @@ export default class MainPage extends Component {
     console.log(this.props.token);
     var that = this;
 
-  var forceNavDown = {'top': '72px'};
-  var positionTitle = {'top': '-8px', 'left':'-10px','background-color':grey700, 'width':'123%', 'height':'73px'};
+    var forceNavDown = {'top': '72px'};
+    var positionTitle = {'top': '-8px', 'padding':'0px,0px,0px,0px', 'backgroundColor':grey700, 'height':'73px'};
+  // var forceNavDown = {'top': '72px'};
+  // var positionTitle = {'top': '-8px', 'left':'-10px','background-color':grey700, 'width':'123%', 'height':'73px'};
 
   var switchView = function (view) {
     console.log('view at first');
@@ -60,26 +63,20 @@ export default class MainPage extends Component {
   }
     return (
       <div>
-        <Flexbox >
-        <AppBar title="dataset.tools" showMenuIconButton={false} iconClassNameRight="muidocs-icon-navigation-expand-more" style={positionTitle} />
-        </Flexbox>
-        <Flexbox>
-          <Link to="/">To HomePage</Link>
-          <p>something here</p>
-          </Flexbox>
-      <Flexbox >
-      <Drawer open={true} containerStyle={forceNavDown}>
+      <div>
+       <AppBar title="dataset.tools" showMenuIconButton={false}  style={positionTitle} iconElementRight={<Link to="/"><FlatButton label="Log Out" /></Link>} />
+       <div className='mainContent'>
+        <p>something here</p>
+       </div>
+      <Drawer className='nav' open={true} containerStyle={forceNavDown}>
         <MenuItem onClick={() => console.log('clicked')}>Projects</MenuItem>
         <MenuItem onClick={() => switchView('Datasets')}>Datasets </MenuItem>
         <MenuItem>Upload DataSet</MenuItem>
-        <MenuItem>
-        </MenuItem>
-
       </Drawer>
-      </Flexbox>
       {MainView}
       <p>{JSON.stringify(this.state.projects)}</p>
       </div>
+    </div>
     );
   }
 }
