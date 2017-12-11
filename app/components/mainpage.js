@@ -11,6 +11,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Flexbox from 'flexbox-react';
 import styled from 'styled-components';
+import FlatButton from 'material-ui/FlatButton';
 
 export default class MainPage extends Component {
   constructor(props){
@@ -36,28 +37,25 @@ export default class MainPage extends Component {
     console.log(this.props)
     console.log(this.props.token);
 
-  var forceNavDown = {'top': '72px'};
-  var positionTitle = {'top': '-8px', 'left':'-10px','background-color':grey700, 'width':'123%', 'height':'73px'};
+    var forceNavDown = {'top': '72px'};
+    var positionTitle = {'top': '-8px', 'padding':'0px,0px,0px,0px', 'backgroundColor':grey700, 'height':'73px'};
+  // var forceNavDown = {'top': '72px'};
+  // var positionTitle = {'top': '-8px', 'left':'-10px','background-color':grey700, 'width':'123%', 'height':'73px'};
     return (
       <div>
-        <Flexbox >
-        <AppBar title="dataset.tools" showMenuIconButton={false} iconClassNameRight="muidocs-icon-navigation-expand-more" style={positionTitle} />
-        </Flexbox>
-        <Flexbox>
-          <Link to="/">To HomePage</Link>
-          <p>something here</p>
-          </Flexbox>
-      <Flexbox >
-      <Drawer open={true} containerStyle={forceNavDown}>
-        <MenuItem>Projects</MenuItem>
-        <MenuItem>Datasets</MenuItem>
-        <MenuItem>Upload DataSet</MenuItem>
-        <MenuItem>
-        </MenuItem>
-
-      </Drawer>
-      </Flexbox>
-      <p>{JSON.stringify(this.state.projects)}</p>
+        <div>
+          <AppBar title="dataset.tools" showMenuIconButton={false}  style={positionTitle} iconElementRight={<Link to="/"><FlatButton label="Log Out" /></Link>} />
+          <div className='mainContent'>
+            <p>something here</p>
+          </div>
+        <Drawer className='nav' open={true} containerStyle={forceNavDown}>
+          <MenuItem>Projects</MenuItem>
+          <MenuItem>Datasets</MenuItem>
+          <MenuItem>Upload DataSet</MenuItem>
+          <MenuItem>{this.props.token}</MenuItem>
+          <MenuItem>{this.props.path}</MenuItem>
+        </Drawer>
+        </div>
       </div>
     );
   }
